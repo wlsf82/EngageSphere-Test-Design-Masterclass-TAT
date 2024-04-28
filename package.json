@@ -1,0 +1,33 @@
+{
+  "name": "EngageSphere-Test-Design-Masterclass-TAT",
+  "version": "1.0.0",
+  "description": "Sample project with basic 'backend' and frontend written in JavaScript.",
+  "scripts": {
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "start:frontend": "cd frontend && npm start",
+    "start:server": "cd backend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlsf82/EngageSphere-Test-Design-Masterclass-TAT.git"
+  },
+  "keywords": [
+    "EngageSphere"
+  ],
+  "author": "Walmyr Filho <wlsf82@gmail.com> (https://walmyr.dev)",
+  "license": "MIT",
+  "homepage": "https://github.com/wlsf82/EngageSphere-Test-Design-Masterclass-TAT#readme",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
