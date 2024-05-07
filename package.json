@@ -6,7 +6,9 @@
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
     "start:frontend": "cd frontend && npm start",
-    "start:server": "cd backend && npm start"
+    "start:server": "cd backend && npm start",
+    "cy:open": "cypress open",
+    "test": "cypress run"
   },
   "repository": {
     "type": "git",
