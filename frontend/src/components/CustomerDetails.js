@@ -7,6 +7,7 @@ const CustomerDetails = ({ customer, onClick }) => {
     setShowAddress(true)
   }
 
+
   const hideAddressHandler = () => {
     setShowAddress(false)
   }
