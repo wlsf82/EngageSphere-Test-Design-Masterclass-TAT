@@ -1,3 +1,3 @@
 Cypress.Commands.add('getCustomers', () => {
-    return cy.request('GET', '/customers');
-  });
+    return cy.api('GET', Cypress.config().backendUrl + '/customers');
+});

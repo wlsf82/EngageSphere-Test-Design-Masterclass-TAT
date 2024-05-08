@@ -34,5 +34,8 @@
   },
   "devDependencies": {
     "cypress": "^13.8.1"
+  },
+  "dependencies": {
+    "cypress-plugin-api": "^2.11.1"
   }
 }
