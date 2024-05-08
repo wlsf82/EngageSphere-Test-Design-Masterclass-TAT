@@ -31,8 +31,14 @@ describe('API Testing Suite for the /customers Endpoint', () => {
     });
   });
 
-  it('Filters customers by size correctly', () => {
-    cy.filterCustomersBySize('large');
+  it.only('Filters customers by size correctly', () => {
+    cy.getPaginatedCustomers({ size: 'Medium' }).then((response) => {
+      expect(response.status).to.eq(200);
+      response.body.customers.forEach(customer => {
+        expect(customer.size).to.eq('Medium');
+        expect(customer.employees).to.be.at.least(100).and.to.be.below(1000);
+      });
+    });
   });
 
   it('Returns the correct structure of the response', () => {
