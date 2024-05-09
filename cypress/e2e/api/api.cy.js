@@ -1,38 +1,27 @@
 describe('API Testing Suite for the /customers Endpoint', () => {
-  it('successfully retrieves customers', () => {
-    cy.getCustomers().then(response => {
+  it('Successfully retrieves customers (checks the 200 status code)', () => {
+    cy.getRequest({}).then((response) => {
       expect(response.status).to.eq(200);
-      expect(response.body.customers).to.be.an('array').that.is.not.empty;
-      response.body.customers.forEach(customer => {
-        return Cypress._.isNumber(customer.id) &&
-        Cypress._.isString(customer.name) &&
-        Cypress._.isNumber(customer.employees) &&
-        Cypress._.isObject(customer.contactInfo) &&
-        Cypress._.isObject(customer.address) &&
-        Cypress._.isString(customer.size) &&
-        ['Small', 'Medium', 'Enterprise', 'Large Enterprise', 'Very Large Enterprise'].includes(customer.size) &&
-        (customer.contactInfo && Cypress._.isString(customer.contactInfo.name) && Cypress._.isString(customer.contactInfo.email)) &&
-        (customer.address && Cypress._.isString(customer.address.street));
-      });
+      expect(response.body.customers).to.be.an('array').that.is.not.empty; 
     });
   });
 
   it('Paginates the customer list correctly', () => {
-    cy.getPaginatedCustomers({ page: 2, limit: 20, size: 'Enterprise' }).then((response) => {
+    cy.getRequest({ page: 2, limit: 20, size: 'All' }).then((response) => {
       expect(response.status).to.eq(200);
       expect(response.body).to.have.property('pageInfo').that.exist;
   
       const { pageInfo, customers } = response.body;
   
       expect(pageInfo.currentPage).to.eq('2');
-      expect(pageInfo.totalPages).to.eq(1);
-      expect(pageInfo.totalCustomers).to.be.gte(1);
-      expect(customers).to.be.an('array').and.to.have.lengthOf(0);
+      expect(pageInfo.totalPages).to.eq(3);
+      expect(pageInfo.totalCustomers).to.be.gte(50);
+      expect(customers).to.be.an('array').and.to.have.lengthOf(20);
     });
   });
 
-  it.only('Filters customers by size correctly', () => {
-    cy.getPaginatedCustomers({ size: 'Medium' }).then((response) => {
+  it('Filters customers by size correctly', () => {
+    cy.getRequest({ size: 'Medium' }).then((response) => {
       expect(response.status).to.eq(200);
       response.body.customers.forEach(customer => {
         expect(customer.size).to.eq('Medium');
@@ -42,11 +31,43 @@ describe('API Testing Suite for the /customers Endpoint', () => {
   });
 
   it('Returns the correct structure of the response', () => {
-    cy.checkResponseStructure();
+    cy.getRequest({page: 2, limit: 5}).then((response) => {
+      expect(response.status).to.eq(200);
+  
+      response.body.customers.forEach((customer) => {
+        expect(customer.id).to.be.a('number');
+        expect(customer.name).to.be.a('string');
+        expect(customer.employees).to.be.a('number');
+        expect(customer.size).to.be.oneOf(['Small', 'Medium', 'Enterprise', 'Large Enterprise', 'Very Large Enterprise']);
+  
+        if (customer.contactInfo) {
+          expect(customer.contactInfo).to.have.property('name').that.is.a('string');
+          expect(customer.contactInfo).to.have.property('email').that.is.a('string');
+        }
+  
+        if (customer.address) {
+          expect(customer.address).to.have.property('street').that.is.a('string');
+          expect(customer.address).to.have.property('city').that.is.a('string');
+          expect(customer.address).to.have.property('state').that.is.a('string');
+          expect(customer.address).to.have.property('zipCode').that.is.a('string');
+          expect(customer.address).to.have.property('country').that.is.a('string');
+        }
+      });
+      
+      cy.wrap(response.body.pageInfo).should((pageInfo) => {
+        expect(pageInfo.currentPage).to.be.a('string').and.to.equal('2');
+        expect(pageInfo.totalPages).to.equal(10);
+        expect(pageInfo.totalCustomers).to.equal(50);
+      });
+    });
   });
+// Invalid tests results 
 
-  it('Handles invalid requests gracefully', () => {
-    cy.handleInvalidRequests();
+  it('Handles invalid requests gracefully (negative page)', () => {
+    cy.getRequest({ page: -2, invalidRequest: true }).then((response) => {
+      expect(response.status).to.eq(400);
+      expect(response.body).to.have.property('error', 'Invalid page or limit. Both must be positive numbers.');
+    });
   });
 
   it('handles invalid requests gracefully (negative limit)', () => {

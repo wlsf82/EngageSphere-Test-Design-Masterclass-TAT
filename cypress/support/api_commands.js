@@ -1,19 +1,12 @@
-Cypress.Commands.add('getCustomers', () => {
-    return cy.api({
-        method: 'GET',
-        url: Cypress.config().backendUrl + '/customers'     
-    });
-});
-
-Cypress.Commands.add('getPaginatedCustomers', ({ page, limit, size }) => {
-    const queryParams = {};
-    if (page) queryParams.page = page;
-    if (limit) queryParams.limit = limit;
-    if (size) queryParams.size = size;
-  
-    cy.api({
+Cypress.Commands.add('getRequest', ({ page = 1, limit = 10, size = 'All', invalidRequest = false }) => {
+    const failOnStatusCode = invalidRequest ? false : true; // Set the failOnStatusCode according to the invalidRequest
+    const queryParams = { page, limit, size };
+    const requestOptions = {
       method: 'GET',
       url: Cypress.config().backendUrl + '/customers',
-      qs: queryParams
-    });
-  });
+      qs: queryParams,
+      failOnStatusCode: failOnStatusCode
+    };
+  
+    cy.api(requestOptions);
+});
