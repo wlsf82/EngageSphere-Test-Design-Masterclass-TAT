@@ -3,7 +3,7 @@ const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('./swaggerConfig')
 
 const app = express()
-const PORT = process.env.PORT || 3001
+const port = 3001; 
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
@@ -129,4 +129,4 @@ app.get('/customers', (req, res) => {
   return res.json(response)
 })
 
-app.listen(PORT, () => console.log(`Backend app listening on port ${PORT}!`))
+app.listen(port, () => console.log(`Backend app listening on port ${port}!`))
