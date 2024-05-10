@@ -1,6 +1,6 @@
 //Filtra clientes por tamanho corretamente
 
-describe('Teste de Filtro de Clientes por Tamanho pela API', () => {
+describe('Teste de filtro de clientes por tamanho', () => {
     it('Deve filtrar clientes por tamanho corretamente', () => {
       cy.request('GET', 'http://localhost:3001/customers?page=1&limit=10&size=Small').then((response) => {
     

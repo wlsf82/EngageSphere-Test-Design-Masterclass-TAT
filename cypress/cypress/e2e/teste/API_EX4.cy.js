@@ -1,6 +1,6 @@
  //Retorna a estrutura correta da resposta (ou seja, propriedades dos customers e pageInfo)
 
-describe('Teste de Estrutura da Resposta da API', () => {
+describe('Teste de Estrutura da Resposta', () => {
     it('Deve retornar a estrutura correta da resposta', () => {
       const url = 'http://localhost:3001/customers?page=1&limit=50&size=All';
   
