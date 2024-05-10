@@ -11,8 +11,8 @@ import SizeFilter from './components/SizeFilter'
 import Table from './components/Table'
 import Footer from './components/Footer'
 
-const serverPort = 3001
-const serverURL = process.env.REACT_APP_HEROKU_API_URL || `http://localhost:${serverPort}`
+const port = 3001; 
+const serverURL = process.env.REACT_APP_HEROKU_API_URL || `http://localhost:${port}`
 
 const App = () => {
   const [name, setName] = useState('')

@@ -1,4 +1,10 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# cypressDependencies
+.DS_Store
+cypress.env.json
+cypress/screenshots
+cypress/videos/
+node_modules/
+results/*.xml
 
 # dependencies
 /frontend/node_modules
