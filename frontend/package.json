@@ -3,13 +3,15 @@
   "description": "React app",
   "version": "0.1.0",
   "dependencies": {
+    "cypress": "^13.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "test:component": "cypress run --spec 'frontend/src/**/*.cy.js"
   },
   "eslintConfig": {
     "extends": [

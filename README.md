@@ -27,3 +27,9 @@ Read the following [doc](./docs/TestCases.md) to get a list of the possible test
 ___
 
 Made with ❤️ by [Walmyr](https://walmyr.dev).
+
+--------------------------------------------
+
+to run the API test : npm ru test:api
+to run the accessibility test: npm run test:a11y
+to run the component tests : didn't found out yet :( (I was running them on the cypress interface, but didn't managed to run them headless)
