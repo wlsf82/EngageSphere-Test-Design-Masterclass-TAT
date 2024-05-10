@@ -29,5 +29,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "axe-core": "^4.9.1",
+    "cypress": "^13.9.0"
   }
 }
