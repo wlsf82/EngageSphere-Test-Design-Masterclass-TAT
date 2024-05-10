@@ -1,4 +1,4 @@
-// Recupera clientes com sucesso (por exemplo, verifica o código de status 200) *
+// Recupera clientes com sucesso (por exemplo, verifica o código de status 200)
 describe('Recuperação de Clientes', () => {
     it('Deve recuperar clientes com sucesso', () => {
       cy.request('GET', 'http://localhost:3001/customers?page=2&limit=10&size=All')
@@ -8,5 +8,4 @@ describe('Recuperação de Clientes', () => {
     });
   });
 
-// Pagina a lista de clientes corretamente
 
