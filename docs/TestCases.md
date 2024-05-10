@@ -63,6 +63,6 @@ When sending a GET request to the `/customers` endpoint:
     - finds no a11y issues in light mode
     - finds no a11y issues in dark mode
 
-___
+---
 
 [Back home](../README.md)

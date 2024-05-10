@@ -178,6 +178,6 @@ If there are customers in the database, the following JSON structure should be r
 
 The API also has a Swagger documentation, which can be accessed via the URL `http://localhost:3001/api-docs/`, as far as the backend server is up and running.
 
-___
+---
 
 [Back home](../README.md)
