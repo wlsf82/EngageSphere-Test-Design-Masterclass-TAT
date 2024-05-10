@@ -30,7 +30,7 @@ Made with ❤️ by [Walmyr](https://walmyr.dev).
 
 --------------------------------------------
 
-to run the API test : npm ru test:api
+to run the API test : npm run test:api
 
 to run the accessibility test: npm run test:a11y
 
