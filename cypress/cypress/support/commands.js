@@ -1,25 +1,29 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('visitAndInterceptCustomers', () => {
+    cy.visit('http://localhost:3000/')
+    cy.intercept(
+        'GET',
+        '/customers?page=1&limit=10&size=All',
+        { fixture: 'page1&limit10All.json' }
+    ).as('pag1limit10all');
+})
+Cypress.Commands.add('pageUp', () => {
+    cy.get('[data-testid="pagination"] > :nth-child(3)').then(($confirmElement) => {
+        if($confirmElement.length > 0) {
+            cy.get('[data-testid="pagination"] > :nth-child(3)').click()
+        }
+    })
+})
+Cypress.Commands.add('declararInterceptador', (page) => {
+    cy.intercept(
+      'GET',
+      `/customers?page=${page}&limit=10&size=All`,
+      { fixture: `page${page}&limit10All.json` }
+    ).as(`pag${page}limit10all`);
+  });
+  beforeEach(() => {
+    for (let page = 1; page <= 5; page++) {
+      cy.declararInterceptador(page);
+    }
+    cy.visit('http://localhost:3000/');
+    cy.wait('@pag1limit10all');
+  });

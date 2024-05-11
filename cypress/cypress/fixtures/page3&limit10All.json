@@ -1,0 +1,146 @@
+{
+    "customers": [
+        {
+            "id": 31,
+            "name": "Torphy, Hayes and Zieme",
+            "employees": 13949,
+            "contactInfo": {
+                "name": "Obie",
+                "email": "Obie82@yahoo.com"
+            },
+            "address": {
+                "street": "50048 Klein Circles",
+                "city": "Sunnyvale",
+                "state": "Utah",
+                "zipCode": "35132-4415",
+                "country": "United States of America"
+            },
+            "size": "Large Enterprise"
+        },
+        {
+            "id": 32,
+            "name": "Corwin Group",
+            "employees": 25281,
+            "contactInfo": null,
+            "address": null,
+            "size": "Large Enterprise"
+        },
+        {
+            "id": 33,
+            "name": "Hauck, Hessel and Gusikowski",
+            "employees": 3464,
+            "contactInfo": {
+                "name": "Oleta",
+                "email": "Oleta57@yahoo.com"
+            },
+            "address": {
+                "street": "4192 Chestnut Drive",
+                "city": "Long Beach",
+                "state": "Arkansas",
+                "zipCode": "17922",
+                "country": "United States of America"
+            },
+            "size": "Enterprise"
+        },
+        {
+            "id": 34,
+            "name": "Goodwin - Cronin",
+            "employees": 64696,
+            "contactInfo": null,
+            "address": null,
+            "size": "Very Large Enterprise"
+        },
+        {
+            "id": 35,
+            "name": "Sipes - Roob",
+            "employees": 1010,
+            "contactInfo": {
+                "name": "Reva",
+                "email": "Reva.Roberts@hotmail.com"
+            },
+            "address": {
+                "street": "355 Tom Dam",
+                "city": "North Camille",
+                "state": "California",
+                "zipCode": "98502",
+                "country": "United States of America"
+            },
+            "size": "Enterprise"
+        },
+        {
+            "id": 36,
+            "name": "Hirthe, Christiansen and Franecki",
+            "employees": 43541,
+            "contactInfo": null,
+            "address": {
+                "street": "149 Rectory Lane",
+                "city": "Port Jermaine",
+                "state": "Oregon",
+                "zipCode": "87327",
+                "country": "United States of America"
+            },
+            "size": "Large Enterprise"
+        },
+        {
+            "id": 37,
+            "name": "Harvey, Robel and Rutherford",
+            "employees": 6354,
+            "contactInfo": {
+                "name": "Nella",
+                "email": "Nella.Schaefer73@yahoo.com"
+            },
+            "address": {
+                "street": "54151 Jeffery Spurs",
+                "city": "Port Devenworth",
+                "state": "Utah",
+                "zipCode": "58863-4162",
+                "country": "United States of America"
+            },
+            "size": "Enterprise"
+        },
+        {
+            "id": 38,
+            "name": "Leannon - Ritchie",
+            "employees": 7688,
+            "contactInfo": null,
+            "address": {
+                "street": "52427 Nels Wall",
+                "city": "New Myahshire",
+                "state": "West Virginia",
+                "zipCode": "47392-3567",
+                "country": "United States of America"
+            },
+            "size": "Enterprise"
+        },
+        {
+            "id": 39,
+            "name": "Kirlin, Jacobi and Larson",
+            "employees": 43444,
+            "contactInfo": {
+                "name": "Kasandra",
+                "email": "Kasandra_Prosacco@gmail.com"
+            },
+            "address": {
+                "street": "33787 S Washington Avenue",
+                "city": "East Korey",
+                "state": "Nevada",
+                "zipCode": "54102",
+                "country": "United States of America"
+            },
+            "size": "Large Enterprise"
+        },
+        {
+            "id": 40,
+            "name": "Bode Group",
+            "employees": 20,
+            "contactInfo": null,
+            "address": null,
+            "size": "Small"
+        }
+    ],
+    "pageInfo": {
+        "currentPage": "4",
+        "totalPages": 5,
+        "totalCustomers": 50
+    }
+}

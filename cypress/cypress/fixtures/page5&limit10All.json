@@ -1,0 +1,137 @@
+{
+    "customers": [
+        {
+            "id": 41,
+            "name": "Crist - Murazik",
+            "employees": 9621,
+            "contactInfo": null,
+            "address": {
+                "street": "8323 Santiago Street",
+                "city": "Kemmerfield",
+                "state": "Alaska",
+                "zipCode": "44351-8345",
+                "country": "United States of America"
+            },
+            "size": "Enterprise"
+        },
+        {
+            "id": 42,
+            "name": "Bailey, Medhurst and Schroeder",
+            "employees": 31296,
+            "contactInfo": {
+                "name": "Cristal",
+                "email": "Cristal_Ortiz@hotmail.com"
+            },
+            "address": null,
+            "size": "Large Enterprise"
+        },
+        {
+            "id": 43,
+            "name": "Turcotte - Marquardt",
+            "employees": 3486,
+            "contactInfo": {
+                "name": "Andre",
+                "email": "Andre.Pacocha25@hotmail.com"
+            },
+            "address": {
+                "street": "5836 Esta Parks",
+                "city": "Lake Arturotown",
+                "state": "Arizona",
+                "zipCode": "53369",
+                "country": "United States of America"
+            },
+            "size": "Enterprise"
+        },
+        {
+            "id": 44,
+            "name": "Dickinson - Kulas",
+            "employees": 825,
+            "contactInfo": null,
+            "address": null,
+            "size": "Medium"
+        },
+        {
+            "id": 45,
+            "name": "Powlowski - Strosin",
+            "employees": 30092,
+            "contactInfo": null,
+            "address": {
+                "street": "89892 Douglas Court",
+                "city": "Johnnietown",
+                "state": "North Carolina",
+                "zipCode": "04473-2549",
+                "country": "United States of America"
+            },
+            "size": "Large Enterprise"
+        },
+        {
+            "id": 46,
+            "name": "Rolfson, Rohan and Fahey",
+            "employees": 132,
+            "contactInfo": null,
+            "address": {
+                "street": "9212 N Bridge Street",
+                "city": "Koeppshire",
+                "state": "Wyoming",
+                "zipCode": "30657",
+                "country": "United States of America"
+            },
+            "size": "Medium"
+        },
+        {
+            "id": 47,
+            "name": "Schumm Inc",
+            "employees": 24787,
+            "contactInfo": null,
+            "address": {
+                "street": "99429 Collin Crossing",
+                "city": "New Cameron",
+                "state": "Mississippi",
+                "zipCode": "15207-0157",
+                "country": "United States of America"
+            },
+            "size": "Large Enterprise"
+        },
+        {
+            "id": 48,
+            "name": "Tillman and Sons",
+            "employees": 41402,
+            "contactInfo": {
+                "name": "Marguerite",
+                "email": "Marguerite.Barton@gmail.com"
+            },
+            "address": {
+                "street": "4040 Kayla Canyon",
+                "city": "New Jabari",
+                "state": "North Dakota",
+                "zipCode": "71136",
+                "country": "United States of America"
+            },
+            "size": "Large Enterprise"
+        },
+        {
+            "id": 49,
+            "name": "DuBuque - O'Keefe",
+            "employees": 16125,
+            "contactInfo": {
+                "name": "Price",
+                "email": "Price.Grady@yahoo.com"
+            },
+            "address": null,
+            "size": "Large Enterprise"
+        },
+        {
+            "id": 50,
+            "name": "Nienow Group",
+            "employees": 27800,
+            "contactInfo": null,
+            "address": null,
+            "size": "Large Enterprise"
+        }
+    ],
+    "pageInfo": {
+        "currentPage": "5",
+        "totalPages": 5,
+        "totalCustomers": 50
+    }
+}
