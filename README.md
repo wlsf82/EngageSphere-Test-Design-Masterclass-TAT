@@ -40,8 +40,8 @@ npm i cypress@latest -D
 
 - Gui mode
 
-npm testGUI
+npm run testGUI
 
 - Headles mode
 
-npm testHeadles
+npm run testHeadlessMode
