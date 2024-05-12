@@ -8,7 +8,7 @@
     "start:frontend": "cd frontend && npm start",
     "start:server": "cd backend && npm start",
     "testGUI": "npx cypress open",
-    "testHeadless":"npx cypress run --headless"
+    "testHeadlessMode":"npx cypress run --headless"
   },
   "repository": {
     "type": "git",
