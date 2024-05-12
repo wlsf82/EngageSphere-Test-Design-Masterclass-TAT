@@ -1,6 +1,6 @@
 describe('Filtros e Exportação', () => {
     beforeEach(() => {
-        cy.visit(Cypress.env('baseUrl'))
+        cy.visit("/")
     });
    
     it('Verificar se é possível filtrar por cada tamanho (All, Small, Medium, Enterprise, Large Enterprise, e Very Large Enterprise)', () => { 

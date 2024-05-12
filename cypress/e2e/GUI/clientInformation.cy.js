@@ -11,8 +11,8 @@ const addressContainer = '.address-info'
 describe('Informações do Cliente', () => {
    
     beforeEach(() => {
-        cy.visit(Cypress.env('baseUrl'))
-       });
+      cy.visit('/') 
+           });
    
    
    

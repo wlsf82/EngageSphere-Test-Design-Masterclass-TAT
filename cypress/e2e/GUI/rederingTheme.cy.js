@@ -9,7 +9,7 @@ const inputName = '[data-testid="name"]'
 describe('Renderização e Tema', () => {
 
     beforeEach(() => {
-       cy.visit(Cypress.env('baseUrl'))
+       cy.visit('/')
       });
 
 

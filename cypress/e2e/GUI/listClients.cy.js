@@ -11,7 +11,7 @@ const inputName = '[data-testid="name"]'
 describe('Lista de Clientes', () => {
 
     beforeEach(() => {
-      cy.visit(Cypress.env('baseUrl'))
+      cy.visit('/')
     });
 
 

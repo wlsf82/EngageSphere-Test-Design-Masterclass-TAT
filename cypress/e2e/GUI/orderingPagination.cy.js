@@ -9,7 +9,7 @@ describe('Ordenação e Paginacao', () => {
 
 
     beforeEach(() => {
-        cy.visit(Cypress.env('baseUrl'))
+        cy.visit('/')
     });
 
     it('Desativa o campo de entrada de texto quando na página de detalhes do cliente', () => {
