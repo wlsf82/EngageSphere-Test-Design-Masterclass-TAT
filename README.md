@@ -27,3 +27,21 @@ Read the following [doc](./docs/TestCases.md) to get a list of the possible test
 ___
 
 Made with ❤️ by [Walmyr](https://walmyr.dev).
+
+
+
+## Install Cypress
+
+- Install cypress
+
+npm i cypress@latest -D
+
+## Run Tests
+
+- Gui mode
+
+npm testGUI
+
+- Headles mode
+
+npm testHeadles
