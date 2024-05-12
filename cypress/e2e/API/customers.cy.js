@@ -51,7 +51,7 @@ describe('API endpoint customers', () => {
             it('Verificar se é possível listar uma pagina com parametro PAGE negativo', () => {
               cy.request({
                 method: 'GET',
-                url: 'http://localhost:3001/customers?page=-1',
+                url: `${Cypress.env('baseUrlApi')}/customers?page=-1`,
                 failOnStatusCode: false 
               }).then(response => {
                 expect(response.status).to.equal(400);
@@ -62,7 +62,7 @@ describe('API endpoint customers', () => {
             it('Verificar se é possível listar uma pagina com parametro LIMIT negativo', () => {
               cy.request({
                 method: 'GET',
-                url: 'http://localhost:3001/customers?page=1&limit=-1',
+                url: `${Cypress.env('baseUrlApi')}/customers?page=1&limit=-1`,
                 failOnStatusCode: false // Não falhar no código de status
               }).then(response => {
                 expect(response.status).to.equal(400);
@@ -73,7 +73,7 @@ describe('API endpoint customers', () => {
             it('Verificar se é possível listar uma pagina com parametro PAGE como string', () => {
               cy.request({
                 method: 'GET',
-                url: 'http://localhost:3001/customers?page="1"',
+                url: `${Cypress.env('baseUrlApi')}/customers?page="1"`,
                 failOnStatusCode: false 
               }).then(response => {
                 expect(response.status).to.equal(400);
@@ -84,7 +84,7 @@ describe('API endpoint customers', () => {
             it('Verificar se é possível listar uma pagina com parametro LIMIT booleno', () => {
               cy.request({
                 method: 'GET',
-                url: 'http://localhost:3001/customers?page=1&limit=true',
+                url: `${Cypress.env('baseUrlApi')}/customers?page=1&limit=true`,
                 failOnStatusCode: false 
               }).then(response => {
                 expect(response.status).to.equal(400);
