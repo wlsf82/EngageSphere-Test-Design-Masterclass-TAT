@@ -48,27 +48,22 @@ describe('Renderização e Tema', () => {
         cy.get(changeColorThemeButton,{timeout:30000}).should('be.visible').click();
         cy.get('body').should('have.attr', 'data-theme', 'dark');
 
-        cy.window().then((win) => {
-            const theme = win.localStorage.getItem('theme');
-            expect(theme).to.equal('dark');
-        });
-        
+        cy.getAllLocalStorage().then((result) => { 
+            expect(result[Cypress.config('baseUrl')].theme).to.equal('dark'); 
+          })
      });
    
    
    
     it('Verificar se e possivel mudar o tema para modo claro, garantindo que persista no localstorage', () => { 
 
-        cy.window().then((win) => {
-             win.localStorage.setItem('theme','dark');      
-        });
-
-        cy.get('#theme-toggle-button',{timeout:30000}).should('be.visible').click();
+     
+        cy.get('#theme-toggle-button',{timeout:30000}).should('be.visible').dblclick();
         cy.get('body').should('have.attr', 'data-theme', 'light');
 
-        cy.window().then((win) => {
-            const theme = win.localStorage.getItem('theme');
-            expect(theme).to.equal('light');
-       });
+        cy.getAllLocalStorage().then((result) => {
+            expect(result[Cypress.config('baseUrl')].theme).to.equal('light');
+          })
+   
     });
   });
