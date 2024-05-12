@@ -5,10 +5,6 @@ describe('API endpoint customers', () => {
                 expect(response.status).to.eq(200)
               })
             })
-
-          
-
-
           
             it('Verificar se e possivel paginar a lista de clientes corretamente', () => {
               cy.request(`${Cypress.env('baseUrlApi')}/customers`).then((response) => {
@@ -30,15 +26,9 @@ describe('API endpoint customers', () => {
               });
             })
 
-
-
-
             it('Verificar se e possivel Filtrar clientes por um tipo de tamanho corretamente', () => {
               cy.apiFilterBySize({ size: 'Small' })
             })
-
-
-
 
             it('Verificar se e possivel listar as propriedades dos customers', () => {
               cy.request(`${Cypress.env('baseUrlApi')}/customers`).then((response) => {
@@ -58,11 +48,6 @@ describe('API endpoint customers', () => {
 
             })
 
-
-
-
-
-
             it('Verificar se é possível listar uma pagina com parametro PAGE negativo', () => {
               cy.request({
                 method: 'GET',
@@ -74,10 +59,6 @@ describe('API endpoint customers', () => {
               });
             });
           
-
-
-
-
             it('Verificar se é possível listar uma pagina com parametro LIMIT negativo', () => {
               cy.request({
                 method: 'GET',
@@ -88,11 +69,6 @@ describe('API endpoint customers', () => {
                 expect(response.body.error).to.equal('Invalid page or limit. Both must be positive numbers.');
               });
             });
-          
-
-
-
-
           
             it('Verificar se é possível listar uma pagina com parametro PAGE como string', () => {
               cy.request({
@@ -105,11 +81,6 @@ describe('API endpoint customers', () => {
               });
             });
           
-          
-
-
-
-
             it('Verificar se é possível listar uma pagina com parametro LIMIT booleno', () => {
               cy.request({
                 method: 'GET',
