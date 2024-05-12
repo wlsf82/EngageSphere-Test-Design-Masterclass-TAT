@@ -7,23 +7,16 @@ describe('API endpoint customers', () => {
             })
           
             it('Verificar se e possivel paginar a lista de clientes corretamente', () => {
-              cy.request(`${Cypress.env('baseUrlApi')}/customers`).then((response) => {
 
-                const limitListOfCostumers = 10
-                const totalPages = response.body.pageInfo.totalPages;
 
-                // Faco um for para paginar o numeros de paginas disponiveis
-                for (let page = 1; page <= totalPages; page++) {
-                  cy.request(`${Cypress.env('baseUrlApi')}/customers?page=${page}`).then((pageResponse) => {
+              cy.request('GET', `${Cypress.env('baseUrlApi')}/customers?page=2&limit=5`)
+              .then(({ body }) => {
+                expect(body.customers).to.have.length(5)
+                expect(body.pageInfo.currentPage).to.eq('2')
+              })
 
-                    //Pego o tamanho do array.
-                    const customersOnPage = pageResponse.body.customers.length
-                    // Verifica se o número de clientes condiz com o limite que deve ser listado na pagina em questao
-                    expect(customersOnPage).to.be.eq(limitListOfCostumers);
 
-                  });
-                }
-              });
+
             })
 
             it('Verificar se e possivel Filtrar clientes por um tipo de tamanho corretamente', () => {
