@@ -24,6 +24,23 @@ Read the following [doc](./docs/TestEnvironment.md) to install and start the bac
 
 Read the following [doc](./docs/TestCases.md) to get a list of the possible test cases that could be written for this app.
 
-___
+How to run the tests:
 
-Made with ❤️ by [Walmyr](https://walmyr.dev).
+First install all the dependencies by running:
+npm install
+
+- Via terminal:
+  npx cypress run
+  npx cypress run --headed
+
+- Via package script:
+  npm run test:run
+  npm run test:headless
+
+- Via Cypress runner:
+  npx cypress open
+
+---
+
+EngangeSphere Made with ❤️ by [Walmyr](https://walmyr.dev).
+Tests created by Alekson!

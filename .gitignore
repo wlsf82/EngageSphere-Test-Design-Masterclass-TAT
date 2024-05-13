@@ -9,3 +9,8 @@
 
 # misc
 .DS_Store
+
+# cypress
+cypress/downloads/
+cypress/screenshots/
+cypress/videos/
