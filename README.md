@@ -24,6 +24,14 @@ Read the following [doc](./docs/TestEnvironment.md) to install and start the bac
 
 Read the following [doc](./docs/TestCases.md) to get a list of the possible test cases that could be written for this app.
 
+- Installation and tests
+
+Install the dev dependencies: run `npm install` (or `npm i` for the short version)
+
+Test in headless mode: run `npm test` (or `npm t` for the short version)
+
+Test in interactive mode: run `npm run cy:open`
+
 ---
 
 Made with ❤️ by [Walmyr](https://walmyr.dev).

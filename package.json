@@ -42,9 +42,8 @@
 		"eslint-plugin-cypress": "^3.2.0",
 		"eslint-plugin-react": "^7.34.1",
 		"globals": "^15.2.0",
-		"prettier": "3.2.5"
-	},
-	"dependencies": {
+		"prettier": "3.2.5",
 		"cypress-plugin-api": "^2.11.1"
-	}
+	},
+	"dependencies": {}
 }
