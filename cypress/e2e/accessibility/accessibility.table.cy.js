@@ -1,6 +1,6 @@
 describe('Accessibility tests for Customer Table', () => {
 	beforeEach(() => {
-		cy.visit(Cypress.config().baseUrl)
+		cy.visit('/')
 	})
 	it('Finds no a11y issues in dark mode', () => {
 		cy.get('#theme-toggle-button').click()

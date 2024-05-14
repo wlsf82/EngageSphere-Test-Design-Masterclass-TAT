@@ -1,4 +1,4 @@
 Cypress.Commands.add('accessibilityCheck', () => {
-	cy.injectAxe()
-	cy.checkA11y()
+  cy.injectAxe()
+  cy.checkA11y()
 })

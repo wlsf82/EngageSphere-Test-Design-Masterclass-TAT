@@ -3,7 +3,7 @@ Cypress.Commands.add('getRequest', ({ page = 1, limit = 10, size = 'All', invali
 	const queryParams = { page, limit, size }
 	const requestOptions = {
 		method: 'GET',
-		url: Cypress.config().backendUrl + '/customers',
+		url: Cypress.env('API_URL') + '/customers',
 		qs: queryParams,
 		failOnStatusCode: failOnStatusCode
 	}
