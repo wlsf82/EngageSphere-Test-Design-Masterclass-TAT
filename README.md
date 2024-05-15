@@ -20,10 +20,41 @@ To run this project, you will need:
 
 Read the following [doc](./docs/TestEnvironment.md) to install and start the backend and frontend servers.
 
-## Tests
+## Cypress Test Automation
+
+This project utilizes the Cypress front-end testing framework for test automation.
+
+Installation
+Before running the tests, make sure you have installed the necessary dependencies. 
+
+Follow these steps:
+
+Clone this repository to your local machine:
+git clone git@github.com:RalfCarneiro/EngageSphere-Test-Design-Masterclass-TAT.git
+
+Navigate to the project directory:
+cd EngageSphere-Test-Design-Masterclass-TAT
+
+Install the necessary devDependencies by running the command:
+npm install
+
+Running Tests
+Headed Mode (With GUI)
+To run the tests in headed mode, follow these steps:
+
+Open the Cypress Test Runner by executing the command:
+npx cypress open
+Select the test file you want to execute in the Cypress interface and wait for the tests to run.
+Headless Mode (Without GUI)
+
+To run the tests in headless mode, follow these steps:
+npx cypress run
+This will execute the tests in headless mode and display the results in the terminal.
+
 
 Read the following [doc](./docs/TestCases.md) to get a list of the possible test cases that could be written for this app.
 
 ___
 
 Made with ❤️ by [Walmyr](https://walmyr.dev).
+
