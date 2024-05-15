@@ -19,7 +19,6 @@ describe('Validações de API', () => {
           expect(response.status).to.eq(400);
           expect(response.body.error).to.contain('Unsupported size value');
           expect(response.body.error).to.contain('Supported values are All, Small, Medium, Enterprise, Large Enterprise, and Very Large Enterprise.');
-          expect(response.body).to.have.property('error');
         });
       });
       it('Então valido a request definindo como invalid limit', () => {
