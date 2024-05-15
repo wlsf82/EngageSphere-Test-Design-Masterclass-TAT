@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-describe('Dado que valido o cabeçalho', () => {
+describe('Elementos de tela', () => {
     beforeEach(() => {
         cy.visit('/')
     });

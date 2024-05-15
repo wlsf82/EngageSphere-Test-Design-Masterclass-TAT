@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-describe('Dado que valido desativar elementos', () => {
+describe('Validação de desativação de entrada de texto e botão "Next"', () => {
     beforeEach(() => {
         cy.visit('/')
     });
@@ -16,8 +16,8 @@ describe('Dado que valido desativar elementos', () => {
             })
         });
     });
-    context('Quando valido desativar o botão de paginação Anterior quando na primeira página', () => {
-        it('Então o botão de paginação Anterior deve estar desabilitado', () => {
+    context('Quando o botão "Next" é desativado na primeira página do cliente', () => {
+        it('Então o botão "Next" é desabilitado quando chega na última página', () => {
             cy.wait('@pag1limit10all')
             cy.get('[disabled=""]').then(($confirmElement) => {
                 if($confirmElement.length > 0) {

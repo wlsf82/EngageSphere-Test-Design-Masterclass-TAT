@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-describe('Dado que valido o desativar do elemento na paginação pag 5', () => {
+describe('Paginação', () => {
     beforeEach(() => {
       for (let page = 1; page <= 5; page++) {
         cy.intercept(
