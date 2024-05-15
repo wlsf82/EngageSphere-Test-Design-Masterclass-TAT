@@ -1,8 +1,5 @@
 /// <reference types="Cypress" />
 describe('Validação método GET lista de clientes', () => {
-  beforeEach(() => {
-    
-  });
   context('Validação de paginação', () => {
     it('Validação de paginação da primeira página', () => {
       cy.request({

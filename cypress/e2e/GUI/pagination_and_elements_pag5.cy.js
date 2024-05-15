@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe('Dado que valido o desativar do elemento na paginação pag 5', () => {
     beforeEach(() => {
-        cy.visitAndInterceptCustomers(); 
+      cy.visit('/') 
     });
     context('Quando valido que estou na página 1', () => {
         it('Então deve conter página 1 de 5', () => {
@@ -27,7 +27,7 @@ describe('Dado que valido o desativar do elemento na paginação pag 5', () => {
         }
         beforeEach(() => {
           declararInterceptadores();
-          cy.visit('http://localhost:3000/');
+          cy.visit('/')
           cy.wait('@pag1limit10all');
           for (let page = 2; page <= 5; page++) {
             cy.pageUp();

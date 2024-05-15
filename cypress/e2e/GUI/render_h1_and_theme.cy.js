@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe('Dado que valido o cabeçalho', () => {
     beforeEach(() => {
-        cy.visitAndInterceptCustomers(); 
+        cy.visit('/')
     });
     context('Quando valido o cabeçalho como um h1', () => {
         it('Então deve o cabeçalho deve conter com um h1', () => {

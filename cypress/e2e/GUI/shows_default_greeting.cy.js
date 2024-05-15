@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe('Dado que valido a saudação', () => {
     beforeEach(() => {
-        cy.visitAndInterceptCustomers(); 
+        cy.visit('/')
     });
     context('Quando valido "Hi There!" como saudação por default', () => {
         it('Então deve conter "Hi there"', () => {

@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe('Dado que valido desativar elementos', () => {
     beforeEach(() => {
-        cy.visitAndInterceptCustomers(); 
+        cy.visit('/')
     });
     context('Quando valido desativar a entrada de texto nos detalhes do cliente', () => {
         beforeEach(() => {
