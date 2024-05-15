@@ -1,10 +1,3 @@
-Cypress.Commands.add('pageUp', () => {
-    cy.get('[data-testid="pagination"] > :nth-child(3)').then(($confirmElement) => {
-        if($confirmElement.length > 0) {
-            cy.get('[data-testid="pagination"] > :nth-child(3)').click()
-        }
-    })
-})
 Cypress.Commands.add('declararInterceptador', (page) => {
     cy.intercept(
       'GET',

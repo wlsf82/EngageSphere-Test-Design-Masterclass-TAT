@@ -30,7 +30,7 @@ describe('Dado que valido o desativar do elemento na paginação pag 5', () => {
           cy.visit('/')
           cy.wait('@pag1limit10all');
           for (let page = 2; page <= 5; page++) {
-            cy.pageUp();
+            cy.contains('Next').click()
             cy.wait(`@pag${page}limit10all`);
           }
         });
