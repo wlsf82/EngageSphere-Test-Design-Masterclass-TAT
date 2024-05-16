@@ -1,38 +1,50 @@
 /// <reference types="Cypress" />
 describe('Detalhes do cliente', () => {
     beforeEach(() => {
-        cy.visit('/') 
+        const dateInThePast = new Date(Date.UTC(1983, 6, 7))
+            cy.clock(dateInThePast)
+            cy.visit('/') 
     });
-    context('Quando valido "Hi There!" como saudação por default', () => {
-        it('Então deve conter "Hi there"', () => {
+    context('Quando valido a saudação por default e a data', () => {
+        it('Então deve conter "Hi there" e a data "Wed Jul 06 1983"', () => {
             cy.wait('@pag1limit10all')
-            cy.get('[data-testid="table"] > :nth-child(1)').then(($confirmElement) => {
+            cy.get('[data-testid="table"] tbody tr').then(($confirmElement) => {
                 if($confirmElement.length > 0) {
                     cy.get('[data-testid="table"] > :nth-child(1)')
                     .should('exist')
                     .and('contain.text', 'Hi there');
-                }
-            });
-        });
-    });
-    context('Quando valido "Hi Joe!" como saudação ', () => {
-        beforeEach(() => {
-            cy.wait('@pag1limit10all')
-            cy.get('[data-testid="name"]').then(($confirmElement) => {
-                if($confirmElement.length > 0) {
-                    cy.get('[data-testid="name"]')
-                    .type('Hi Joe!')
-                }
-            });
-        });
-        it('Então deve conter "Hi there"', () => {
-            cy.get('[data-testid="table"] > :nth-child(1)').then(($confirmElement) => {
-                if($confirmElement.length > 0) {
-                    cy.get('[data-testid="table"] > :nth-child(1)')
+
+                    cy.get('main > .table-container > p > b:nth-child(2)')
                     .should('exist')
-                    .and('contain.text', 'Hi Joe!');
+                    .and('contain.text', 'Wed Jul 06 1983')
+                    .and('be.visible');
                 }
             });
         });
     });
+    context('Quando valido a saudação personalisada e a data ', () => {
+        beforeEach(() => {
+            cy.wait('@pag1limit10all');
+            cy.get('[data-testid="table"] b').then(($confirmElement) => {
+                if ($confirmElement.length > 0) {
+                    cy.get('[data-testid="name"]').type('Hi Joe!');
+                }
+            });
+        });
+        it('Então deve conter "Hi Joe!"e a data "Wed Jul 06 1983"', () => {
+            cy.get('[data-testid="table"] tbody tr').then(($confirmElement) => {
+                if ($confirmElement.length > 0) {
+                    cy.get('[data-testid="table"] > :nth-child(1)')
+                        .should('exist')
+                        .and('contain.text', 'Hi Joe!');
+                    
+                    cy.get('main > .table-container > p > b:nth-child(2)')
+                        .should('exist')
+                        .and('contain.text', 'Wed Jul 06 1983')
+                        .and('be.visible');
+                }
+            });
+        });
+    });
+    
 });

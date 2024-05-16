@@ -11,7 +11,7 @@ describe('Validação de desativação de entrada de texto e botão "Next"', () 
             cy.wait('@pag1limit10all')
             cy.get('[data-testid="name"]').then(($confirmElement) => {
                 if($confirmElement.length > 0) {
-                    cy.get('[data-testid="name"]').should('be.disabled');
+                    cy.get('[data-testid="name"]').should('be.disabled').and('be.visible');
                 }
             })
         });
@@ -21,7 +21,7 @@ describe('Validação de desativação de entrada de texto e botão "Next"', () 
             cy.wait('@pag1limit10all')
             cy.get('[disabled=""]').then(($confirmElement) => {
                 if($confirmElement.length > 0) {
-                    cy.get('[disabled=""]').should('be.disabled');
+                    cy.get('[disabled=""]').should('be.disabled').and('be.visible');
                 }
             })
         });
