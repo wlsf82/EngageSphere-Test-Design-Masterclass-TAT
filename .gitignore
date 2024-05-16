@@ -9,3 +9,9 @@
 
 # misc
 .DS_Store
+
+# cypress
+cypress.env.json
+cypress/downloads/
+cypress/screenshots/
+cypress/videos/
