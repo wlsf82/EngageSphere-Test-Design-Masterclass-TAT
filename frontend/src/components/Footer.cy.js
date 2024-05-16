@@ -3,11 +3,10 @@ import Footer from './Footer'
 
 describe('<Footer />', () => {
   it('renders', () => {
-    // see: https://on.cypress.io/mounting-react
     cy.mount(<Footer />)
     cy.contains('Copyright 2024 - Talking About Testing')
-    cy.get('[data-testid="footer"]').find('a').should('have.attr', 'href').and('include', 'udemy.com')
-    cy.get('[data-testid="footer"]').find('a').eq(1).should('have.attr', 'href').and('include', 'talkingabouttesting.com')
-    cy.get('[data-testid="footer"]').find('a').eq(2).should('have.attr', 'href').and('include', '@talkingabouttesting')
+    cy.contains('a', 'Udemy').should('be.visible').and('have.attr', 'href', 'https://udemy.com/user/walmyr')
+    cy.contains('a', 'Blog').should('be.visible').and('have.attr', 'href', 'https://talkingabouttesting.com')
+    cy.contains('a', 'YouTube').should('be.visible').and('have.attr', 'href', 'https://youtube.com/@talkingabouttesting')
   })
 })

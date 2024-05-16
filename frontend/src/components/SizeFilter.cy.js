@@ -3,11 +3,10 @@ import SizeFilter from './SizeFilter'
 
 describe('<SizeFilter />', () => {
   it('Filtra por cada tamanho', () => {
-    // see: https://on.cypress.io/mounting-react
     cy.mount(<SizeFilter />)
-    cy.get('select').should('have.value','All').find('option').each(($opn) => {
+    cy.get('select').should('have.value', 'All').find('option').each(($opn) => {
       const optionText = $opn.text()
-      cy.get('select').select(optionText).should('have.value',optionText)
+      cy.get('select').select(optionText).should('have.value', optionText)
     })
 
   })

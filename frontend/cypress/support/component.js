@@ -14,13 +14,13 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
+import '../../src/index.css';
 import { mount } from 'cypress/react18'
-
+import Customers from '../../../cypress/fixtures/customers';
+import emptyTable from '../../../cypress/fixtures/emptyTable';
 Cypress.Commands.add('mount', mount)
 
 // Example use:

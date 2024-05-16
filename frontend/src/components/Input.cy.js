@@ -1,27 +1,16 @@
 import React from 'react'
 import Input from './Input'
-
+import emptyTable from '../../../cypress/fixtures/emptyTable'
+import Customers from '../../../cypress/fixtures/customers'
 describe('<Input />', () => {
   const clientes = []
   it('Desativa o campo de entrada de texto quando não há clientes no banco de dados', () => {
-    // see: https://on.cypress.io/mounting-react
-    cy.getCustomers({page:7}).then(({body}) => {
-    body.customers.forEach(element => {
-      clientes.push(element)
-  });
-  })
-    cy.mount(<Input customers ={clientes} />)
+    cy.mount(<Input customers={emptyTable} />)
     cy.get('input').should('be.disabled')
   })
-  
+
   it('Desativa o campo de entrada de texto quando na página de detalhes do cliente', () => {
-    const clientes = []
-    cy.getCustomers({size: 'All'}).then(({body}) => {
-    body.customers.forEach(element => {
-      clientes.push(element)
-  });
-  cy.mount(<Input customer = {clientes[1]} customers ={clientes} />)
-  cy.get('input').should('be.disabled')
-    })
+    cy.mount(<Input customer={Customers[1]} customers={Customers} />)
+    cy.get('input').should('be.disabled')
   })
 })
