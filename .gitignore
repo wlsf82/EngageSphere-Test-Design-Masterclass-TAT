@@ -6,6 +6,10 @@
 /node_modules
 /build
 /dist
+/cypress.env.json
+/cypress/downloads/
+/cypress/screenshots/
+/cypress/videos/
 
 # misc
 .DS_Store
