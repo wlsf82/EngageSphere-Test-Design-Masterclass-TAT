@@ -25,7 +25,7 @@ Read the following [doc](./docs/TestEnvironment.md) to install and start the bac
 Read the following [doc](./docs/TestCases.md) to get a list of the possible test cases that could be written for this app.
 
 ### Running the tests
-to run the API test : npm run test:api
+To run the API tests, `npm run test:api`.
 
 to run the accessibility test: npm run test:a11y
 
