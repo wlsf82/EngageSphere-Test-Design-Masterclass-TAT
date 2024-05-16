@@ -1,4 +1,4 @@
-Cypress.Commands.add('chamaClientes',({page = 1, limit =10, size = 'All', statusCodeFail = false}) =>{
+Cypress.Commands.add('getCustomers',({page = 1, limit =10, size = 'All', statusCodeFail = false}) =>{
     const parametros = {page,limit,size}
     const failOnStatusCode = statusCodeFail ? false : true
     const chamada ={

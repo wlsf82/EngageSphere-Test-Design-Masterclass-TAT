@@ -5,7 +5,7 @@ describe('<Input />', () => {
   const clientes = []
   it('Desativa o campo de entrada de texto quando não há clientes no banco de dados', () => {
     // see: https://on.cypress.io/mounting-react
-    cy.chamaClientes({page:7}).then(({body}) => {
+    cy.getCustomers({page:7}).then(({body}) => {
     body.customers.forEach(element => {
       clientes.push(element)
   });
@@ -16,7 +16,7 @@ describe('<Input />', () => {
   
   it('Desativa o campo de entrada de texto quando na página de detalhes do cliente', () => {
     const clientes = []
-    cy.chamaClientes({size: 'All'}).then(({body}) => {
+    cy.getCustomers({size: 'All'}).then(({body}) => {
     body.customers.forEach(element => {
       clientes.push(element)
   });

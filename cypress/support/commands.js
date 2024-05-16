@@ -1,6 +1,6 @@
-Cypress.Commands.add('chamaClientes',({page = 1, limit =10, size = 'All', statusCodeFail = false}) =>{
+Cypress.Commands.add('getCustomers',({page = 1, limit =10, size = 'All', failOnStatusCode = true}) =>{
     const parametros = {page,limit,size}
-    const failOnStatusCode = statusCodeFail ? true : false
+    const failOnStatusCode = failOnStatusCode || false
     const chamada ={
         method : 'GET',
         url: 'http://localhost:3001/customers',
@@ -8,9 +8,4 @@ Cypress.Commands.add('chamaClientes',({page = 1, limit =10, size = 'All', status
         failOnStatusCode: failOnStatusCode
     }
     cy.request(chamada)
-})
-
-Cypress.Commands.add('a11yCheck',()=>{
-cy.injectAxe()
-cy.checkA11y()
 })

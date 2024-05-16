@@ -4,7 +4,7 @@ import Table from './Table'
 describe('<Table />', () => {
   it('Mostra uma lista de clientes quando há dados no banco de dados', () => {
     const clientes = []
-    cy.chamaClientes({size: 'All'}).then(({body}) => {
+    cy.getCustomers({size: 'All'}).then(({body}) => {
     body.customers.forEach(element => {
       clientes.push(element)
   });
@@ -24,7 +24,7 @@ describe('<Table />', () => {
       }
     ).as('getcustomers')
     
-    cy.chamaClientes({size: 'All'}).then(({body}) => {
+    cy.getCustomers({size: 'All'}).then(({body}) => {
     body.customers.forEach(element => {
       clientes.push(element)
   });
@@ -39,7 +39,7 @@ describe('<Table />', () => {
 
   it('Ordena por Número de funcionários em ordem ascendente',() =>{
     const clientes = []
-    cy.chamaClientes({size: 'All'}).then(({body}) => {
+    cy.getCustomers({size: 'All'}).then(({body}) => {
     body.customers.forEach(element => {
       clientes.push(element)
   });
@@ -50,7 +50,7 @@ describe('<Table />', () => {
 })
 it('Ordena por Número de funcionários em ordem descendente',() =>{
   const clientes = []
-  cy.chamaClientes({size: 'All'}).then(({body}) => {
+  cy.getCustomers({size: 'All'}).then(({body}) => {
   body.customers.forEach(element => {
     clientes.push(element)
 });
@@ -62,7 +62,7 @@ cy.contains('span','↓').should('be.visible')
 
 it('Ordena por Tamanho em ordem ascendente',() =>{
   const clientes = []
-  cy.chamaClientes({size: 'All'}).then(({body}) => {
+  cy.getCustomers({size: 'All'}).then(({body}) => {
   body.customers.forEach(element => {
     clientes.push(element)
 });
@@ -74,7 +74,7 @@ cy.contains('span','↑').should('be.visible')
 
 it('Ordena por Tamanho em ordem descendente por padrão',() =>{
   const clientes = []
-  cy.chamaClientes({size: 'All'}).then(({body}) => {
+  cy.getCustomers({size: 'All'}).then(({body}) => {
   body.customers.forEach(element => {
     clientes.push(element)
 });
@@ -85,7 +85,7 @@ cy.contains('span','↓').should('be.visible')
 
 it('Ordena em ordem descendente por padrão ao mudar a coluna de ordenação',() =>{
   const clientes = []
-cy.chamaClientes({size: 'All'}).then(({body}) => {
+cy.getCustomers({size: 'All'}).then(({body}) => {
   body.customers.forEach(element => {
     clientes.push(element)
 });

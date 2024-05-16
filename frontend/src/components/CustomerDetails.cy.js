@@ -3,7 +3,7 @@ import CustomerDetails from './CustomerDetails'
 
 describe('<CustomerDetails />', () => {
 it('Mostra as informações de contato de um cliente específico', () => {
-cy.chamaClientes({size: 'All'}).then(({body}) => {
+cy.getCustomers({size: 'All'}).then(({body}) => {
 cy.mount(<CustomerDetails customer={body.customers[1]} onClick={cy.stub()}/>)
 cy.get('.customer-details')
 .contains('Company name').should('be.visible')
@@ -19,7 +19,7 @@ cy.get('.customer-details')
 })
 
 it('Mostra "No contact info available" para um cliente sem informações de contato', () => {
-  cy.chamaClientes({size: 'All'}).then(({body}) => {
+  cy.getCustomers({size: 'All'}).then(({body}) => {
     cy.mount(<CustomerDetails customer={body.customers[0]} onClick={cy.stub()}/>)
     cy.get('.customer-details')
 .contains('No contact info available').should('be.visible')
@@ -27,7 +27,7 @@ it('Mostra "No contact info available" para um cliente sem informações de cont
 })
 
 it('Mostra o endereço do cliente', () => {
-  cy.chamaClientes({size: 'All'}).then(({body}) => {
+  cy.getCustomers({size: 'All'}).then(({body}) => {
     cy.mount(<CustomerDetails customer={body.customers[0]} onClick={cy.stub()}/>)
     cy.get('.show-address-btn').click()
     cy.get('.address-info').should('exist')
@@ -39,7 +39,7 @@ it('Mostra o endereço do cliente', () => {
 })
 })
 it('Ocultar o endereço do cliente', () => {
-  cy.chamaClientes({size: 'All'}).then(({body}) => {
+  cy.getCustomers({size: 'All'}).then(({body}) => {
     cy.mount(<CustomerDetails customer={body.customers[0]} onClick={cy.stub()}/>)
     cy.get('.show-address-btn').click()
     cy.get('.address-info').should('exist')
@@ -49,7 +49,7 @@ it('Ocultar o endereço do cliente', () => {
 })
 
 it('Mostra "No address available" para um cliente sem informações de endereço', () => {
-  cy.chamaClientes({size: 'Large Enterprise'}).then(({body}) => {
+  cy.getCustomers({size: 'Large Enterprise'}).then(({body}) => {
     cy.mount(<CustomerDetails customer={body.customers[2]} onClick={cy.stub()}/>)
     cy.get('.show-address-btn').click()
     cy.contains('No address available')

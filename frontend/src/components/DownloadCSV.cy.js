@@ -5,7 +5,7 @@ describe('<DownloadCSVButton />', () => {
   it('renders', () => {
     // see: https://on.cypress.io/mounting-react
     const clientes = []
-cy.chamaClientes({size: 'All'}).then(({body}) => {
+cy.getCustomers({size: 'All'}).then(({body}) => {
   body.customers.forEach(element => {
     clientes.push(element)
 });
