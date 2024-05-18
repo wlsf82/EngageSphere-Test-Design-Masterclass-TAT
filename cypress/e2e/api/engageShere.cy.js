@@ -35,7 +35,9 @@ describe('GET /customers', () => {
     const totalDePagPorLimite = [10, 5, 3, 1]
 
     qtdePaginas.forEach((limite, indice) => {
-      cy.request('GET', `${CUSTOMERS_API_URL}customers?page=1&limit=${limite}&size=All`
+      cy.request(
+        'GET',
+        `${CUSTOMERS_API_URL}customers?page=1&limit=${limite}&size=All`
       ).then(({ body }) => {
         expect(body.customers).to.have.length(limite)
         expect(body.pageInfo.totalPages).to.eq(totalDePagPorLimite[indice])
@@ -43,7 +45,7 @@ describe('GET /customers', () => {
     })
   })
 
-  it.only('Validar as propriedades customer e pagInfo da resposta', () => {
+  it('Validar as propriedades customer e pagInfo da resposta', () => {
     cy.request(
       'GET',
       `${CUSTOMERS_API_URL}customers?page=1&limit=5&size=All`
@@ -137,6 +139,19 @@ describe('GET /customers', () => {
       cy.request({
         method: 'GET',
         url: `${CUSTOMERS_API_URL}customers?page=&limit=&size=`,
+        failOnStatusCode: false,
+      }).then((response) => {
+        expect(response.status).to.eq(400)
+        expect(response.body.error).to.equal(
+          'Invalid page or limit. Both must be positive numbers.'
+        )
+      })
+    })
+
+    it('Por filtrar limite com valor igual a 0', () => {
+      cy.request({
+        method: 'GET',
+        url: `${CUSTOMERS_API_URL}customers?page=1&limit=0&size=All`,
         failOnStatusCode: false,
       }).then((response) => {
         expect(response.status).to.eq(400)
