@@ -30,7 +30,7 @@ describe('GET /customers', () => {
     })
   })
 
-  it.only('Validar filtro por paginação', () => {
+  it('Validar filtro por paginação', () => {
     const qtdePaginas = ['5', '10', '20', '50']
     const totalDePagPorLimite = [10, 5, 3, 1]
 
@@ -43,7 +43,7 @@ describe('GET /customers', () => {
     })
   })
 
-  it('Validar as propriedades customer e pagInfo da resposta', () => {
+  it.only('Validar as propriedades customer e pagInfo da resposta', () => {
     cy.request(
       'GET',
       `${CUSTOMERS_API_URL}customers?page=1&limit=5&size=All`
@@ -59,6 +59,7 @@ describe('GET /customers', () => {
         expect(customer).to.have.property('employees')
         expect(customer).to.have.property('size')
         expect(customer).to.have.property('address')
+        expect(customer).to.have.property('contactInfo')
       })
       expect(body.pageInfo).to.have.property('currentPage')
       expect(body.pageInfo).to.have.property('totalPages')
