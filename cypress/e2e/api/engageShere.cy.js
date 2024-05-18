@@ -1,11 +1,12 @@
 describe('GET /customers', () => {
   const CUSTOMERS_API_URL = `${Cypress.env('API_URL')}`
   it('Recuperar clientes com sucesso', () => {
-    cy.request('GET', `${CUSTOMERS_API_URL}customers?page=1&limit=10&size=All`).then(
-      (response) => {
-        expect(response.status).to.eq(200)
-      }
-    )
+    cy.request(
+      'GET',
+      `${CUSTOMERS_API_URL}customers?page=1&limit=10&size=All`
+    ).then(({ status }) => {
+      expect(status).to.eq(200)
+    })
   })
 
   it('Validar filtro pelo tamanho da empresa', () => {
@@ -18,7 +19,9 @@ describe('GET /customers', () => {
     ]
 
     tamanhos.forEach((tamanho) => {
-      cy.request('GET',`${CUSTOMERS_API_URL}customers?page=1&limit=10&size=${tamanho}`
+      cy.request(
+        'GET',
+        `${CUSTOMERS_API_URL}customers?page=1&limit=10&size=${tamanho}`
       ).then(({ body }) => {
         body.customers.forEach((customer) => {
           expect(customer.size).to.eq(tamanho)
@@ -27,39 +30,40 @@ describe('GET /customers', () => {
     })
   })
 
-  it('Validar filtro por paginação', () => {
-    const qtdaPaginas = ['5', '10', '20', '50']
+  it.only('Validar filtro por paginação', () => {
+    const qtdePaginas = ['5', '10', '20', '50']
+    const totalDePagPorLimite = [10, 5, 3, 1]
 
-    qtdaPaginas.forEach((paginas) => {
-      cy.request('GET', `${CUSTOMERS_API_URL}customers?page=1&limit=${paginas}&size=All`
+    qtdePaginas.forEach((limite, indice) => {
+      cy.request('GET', `${CUSTOMERS_API_URL}customers?page=1&limit=${limite}&size=All`
       ).then(({ body }) => {
-        body.pageInfo.forEach((page) => {
-          expect(page.totalPages).to.have.length(paginas)
-        })
+        expect(body.customers).to.have.length(limite)
+        expect(body.pageInfo.totalPages).to.eq(totalDePagPorLimite[indice])
       })
     })
   })
 
   it('Validar as propriedades customer e pagInfo da resposta', () => {
-    cy.request('GET', `${CUSTOMERS_API_URL}customers?page=1&limit=5&size=All`).then(
-      ({ body }) => {
-        expect(body).to.have.property('customers')
-        expect(body).to.have.property('pageInfo')
-        expect(body.customers).to.be.an('array')
-        expect(body.customers.length).to.be.greaterThan(0)
+    cy.request(
+      'GET',
+      `${CUSTOMERS_API_URL}customers?page=1&limit=5&size=All`
+    ).then(({ body }) => {
+      expect(body).to.have.property('customers')
+      expect(body).to.have.property('pageInfo')
+      expect(body.customers).to.be.an('array')
+      expect(body.customers.length).to.be.greaterThan(0)
 
-        body.customers.forEach((customer) => {
-          expect(customer).to.have.property('id')
-          expect(customer).to.have.property('name')
-          expect(customer).to.have.property('employees')
-          expect(customer).to.have.property('size')
-          expect(customer).to.have.property('address')
-        })
-        expect(body.pageInfo).to.have.property('currentPage')
-        expect(body.pageInfo).to.have.property('totalPages')
-        expect(body.pageInfo).to.have.property('totalCustomers')
-      }
-    )
+      body.customers.forEach((customer) => {
+        expect(customer).to.have.property('id')
+        expect(customer).to.have.property('name')
+        expect(customer).to.have.property('employees')
+        expect(customer).to.have.property('size')
+        expect(customer).to.have.property('address')
+      })
+      expect(body.pageInfo).to.have.property('currentPage')
+      expect(body.pageInfo).to.have.property('totalPages')
+      expect(body.pageInfo).to.have.property('totalCustomers')
+    })
   })
 
   context('Validar solicitações inválidas', () => {
