@@ -1,4 +1,4 @@
-describe('Listar clientes na aplicação EngageSphere', () => {
+describe('GET /customers', () => {
   const CUSTOMERS_API_URL = `${Cypress.env('API_URL')}`
   it('Recuperar clientes com sucesso', () => {
     cy.request('GET', `${CUSTOMERS_API_URL}customers?page=1&limit=10&size=All`).then(

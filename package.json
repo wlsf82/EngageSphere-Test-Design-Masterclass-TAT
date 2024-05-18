@@ -5,12 +5,12 @@
   "scripts": {
     "cy:open": "cypress open",
     "test": "cypress run",
+    "start:server": "cd backend && npm start",
     "lint":  "eslint cypress/**/*.js && eslint cypress.config.js",
     "lint:fix": "eslint cypress/**/*.js --fix && eslint cypress.config.js --fix",
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
-    "start:frontend": "cd frontend && npm start",
-    "start:server": "cd backend && npm start"
+    "start:frontend": "cd frontend && npm start"    
   },
   "repository": {
     "type": "git",
