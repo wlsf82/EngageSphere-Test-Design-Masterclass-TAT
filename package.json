@@ -37,7 +37,7 @@
   "bugs": {
     "url": "https://github.com/wlsf82/EngageSphere-Test-Design-Masterclass-TAT/issues"
   },
-  "main": "index.js",
+  "main": "cypress.config.js",
   "directories": {
     "doc": "docs"
   },
