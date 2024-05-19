@@ -5,7 +5,7 @@ describe('Validar o campo de texto da aplicação Engage Sphere', () => {
     cy.wait('@getCustomers')
   })
 
-  it.only('Desativa o campo de entrada de texto quando na página de detalhes do cliente', () => {
+  it('Desativa o campo de entrada de texto quando na página de detalhes do cliente', () => {
     cy.get('tbody tr')
       .first()
       .click()
