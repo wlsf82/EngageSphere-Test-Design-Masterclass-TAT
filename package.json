@@ -1,12 +1,16 @@
 {
-  "name": "EngageSphere-Test-Design-Masterclass-TAT",
+  "name": "engagesphere-test-design-masterclass-tat",
   "version": "1.0.0",
   "description": "Sample project with basic 'backend' and frontend written in JavaScript.",
   "scripts": {
+    "cy:open": "cypress open",
+    "test": "cypress run",
+    "lint": "eslint cypress/**/*.js && eslint cypress.config.js",
+    "lint:fix": "eslint cypress/**/*.js --fix && eslint cypress.config.js --fix",
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
-    "start:frontend": "cd frontend && npm start",
-    "start:server": "cd backend && npm start"
+    "start:server": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start"
   },
   "repository": {
     "type": "git",
@@ -29,5 +33,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/wlsf82/EngageSphere-Test-Design-Masterclass-TAT/issues"
+  },
+  "main": "cypress.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.2.0",
+    "axe-core": "^4.9.1",
+    "cypress": "^13.9.0",
+    "cypress-axe": "^1.5.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-cypress": "^2.13.3",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.2.0"
   }
 }

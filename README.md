@@ -22,8 +22,14 @@ Read the following [doc](./docs/TestEnvironment.md) to install and start the bac
 
 ## Tests
 
+At the project root, run the command npm install (or npm i for the short version) to install the development dependencies in their exact versions.
+
+To open the Test Runner and run the test interactively, execute the command npm run cy:open in the command line terminal, at the project root (or in the VS Code shortcut).
+
+To run the test headless, execute the command npm run test in the command line terminal, at the project root (or in the VS Code shortcut).
+
 Read the following [doc](./docs/TestCases.md) to get a list of the possible test cases that could be written for this app.
 
 ___
 
-Made with ❤️ by [Walmyr](https://walmyr.dev).
+Made with ❤️ by [Walmyr](https://walmyr.dev), com exercícios resolvidos por Sany.
