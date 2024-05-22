@@ -1,12 +1,35 @@
-name: Masterclass Cypress 🧪
+name: CI EngageSphere Tests 🧪
+
 on: push
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies
+        run: |
+          npm run install:frontend
+          npm run install:backend
+
+      - name: Start backend server
+        run: npm run start:server & 
+
+      - name: Start frontend server
+        run:
+          npm run start:frontend &
+
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6
+        with:
+          start: npm run start:frontend
+       
+
+
