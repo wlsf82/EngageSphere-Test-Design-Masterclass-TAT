@@ -1,5 +1,5 @@
 {
-  "name": "EngageSphere-Test-Design-Masterclass-TAT",
+  "name": "engagesphere-test-design-masterclass-tat",
   "version": "1.0.0",
   "description": "Sample project with basic 'backend' and frontend written in JavaScript.",
   "scripts": {
@@ -31,6 +31,13 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^13.9.0"
+    "cypress": "^13.10.0"
+  },
+  "bugs": {
+    "url": "https://github.com/wlsf82/EngageSphere-Test-Design-Masterclass-TAT/issues"
+  },
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
   }
 }
