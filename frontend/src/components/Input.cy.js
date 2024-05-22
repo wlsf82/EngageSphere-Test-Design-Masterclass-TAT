@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Input from './Input'
+import '../index.css'
 
 describe('Input component', () => {
 	it('Disables the text input field when there are no customers in the database" when there are no customers in the database', () => {

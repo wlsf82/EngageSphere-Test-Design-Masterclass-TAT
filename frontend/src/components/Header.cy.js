@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Header from './Header'
+import '../index.css'
 
 describe('Header component', () => {
 	it('Renders the header with an h1 and theme toggle', () => {

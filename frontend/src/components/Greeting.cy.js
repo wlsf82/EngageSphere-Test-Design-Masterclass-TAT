@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Greeting from './Greeting'
+import '../index.css'
 
 describe('Greeting component', () => {
 	it('Shows the default greeting (i.e., Hi there! ...)', () => {

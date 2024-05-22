@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import EmptyState from './EmptyState'
+import '../index.css'
 
 describe('EmptyState component', () => {
 	it('Shows the image of an empty box and the text "No customers available." when there are no customers in the database', () => {

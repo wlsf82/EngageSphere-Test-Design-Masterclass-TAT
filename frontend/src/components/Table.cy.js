@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Table from './Table'
+import '../index.css'
 
 const allCustomers = [
 	{ id: 1, name: "Jonathan's BigSales", employees: 5000, size: 'very large enterprise' },
