@@ -6,7 +6,6 @@ describe('A11y Customers table and detail', () => {
 
     it('não encontra problemas de acessibilidade no modo claro', () => {
         cy.checkA11y()
-
     })
     it('não encontra problemas de acessibilidade no modo escuro', () => {
         cy.get('#theme-toggle-button').click()
