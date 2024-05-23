@@ -20,16 +20,12 @@ jobs:
           npm run install:backend
 
       - name: Start backend server
-        run: npm run start:server & 
+        run: npm run start:server &
 
       - name: Start frontend server
-        run:
-          npm run start:frontend &
+        run: npm run start:frontend &
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
           start: npm run start:frontend
-       
-
-
