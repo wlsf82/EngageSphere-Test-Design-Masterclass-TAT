@@ -1,6 +1,7 @@
-# sensitive files
+# sensitive file
 cypress.env.json
-cypress/downloads/
+
+# ignore artifacts
 cypress/screenshots/
 cypress/videos/
 
