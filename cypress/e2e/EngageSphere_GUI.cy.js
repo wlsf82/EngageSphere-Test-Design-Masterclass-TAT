@@ -1,11 +1,11 @@
 // Renderiza o cabeçalho com um h1 e alternância de tema
 describe('Teste do cabeçalho e alternância de tema', () => {
     beforeEach(() => {
-      cy.visit('http://localhost:3000/');
+      cy.visit('/');
     });
 
     it('Deve renderizar o cabeçalho com um h1', () => {
-      cy.get('h1').should('exist');
+      cy.contains('h1', 'EngageSphere').should('be.visible');
     });
 
     it('Deve alternar o tema', () => {
@@ -50,8 +50,8 @@ describe('Teste de redirecionamento ao clicar no botão "Voltar"', () => {
 
     it('Deve exibir o rodapé e seus links', () => {
       cy.get('[data-testid="footer"]').should('exist');
-      cy.contains('Udemy').should('have.attr', 'href', 'https://udemy.com/user/walmyr');
-      cy.contains('Blog').should('have.attr', 'href', 'https://talkingabouttesting.com');
-      cy.contains('YouTube').should('have.attr', 'href', 'https://youtube.com/@talkingabouttesting');
+      cy.contains('a', 'Udemy').should('have.attr', 'href', 'https://udemy.com/user/walmyr');
+      cy.contains('a','Blog').should('have.attr', 'href', 'https://talkingabouttesting.com');
+      cy.contains('a','YouTube').should('have.attr', 'href', 'https://youtube.com/@talkingabouttesting');
     });
   });
