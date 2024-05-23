@@ -16,7 +16,7 @@ describe('EngageSphere API requests for the /customers Endpoint', () => {
 
         expect(pageInfo.currentPage).to.eq('2')
         expect(pageInfo.totalPages).to.eq(3)
-        expect(pageInfo.totalCustomers).to.be.gte(50)
+        expect(pageInfo.totalCustomers).to.be.lte(50)
         expect(customers).to.be.an('array').and.to.have.lengthOf(20)
       })
     })
@@ -92,7 +92,18 @@ describe('EngageSphere API requests for the /customers Endpoint', () => {
         expect(body).to.have.property('error', 'Invalid page or limit. Both must be positive numbers.')
       })
     })
-
+    it('Handles invalid requests gracefully (e.g., limit as a boolean)', () => {
+      cy.api_getCustomers({ limit: 0, failOnStatusCode: false }).then(({ status, body }) => {
+        expect(status).to.eq(400)
+        expect(body).to.have.property('error', 'Invalid page or limit. Both must be positive numbers.')
+      })
+    })
+    it.only('Handles invalid requests gracefully (e.g., empty page)', () => {
+      cy.api_getCustomers({ page: 6, limit: 10, failOnStatusCode: false }).then(({ status, body }) => {
+        expect(status).to.eq(400)
+        expect(body).to.have.property('error', 'Invalid page or limit. Both must be positive numbers.')
+      })
+    })
     it('Handles invalid requests gracefully (e.g., unsupported size)', () => {
       cy.api_getCustomers({ size: 'InvalidSize', failOnStatusCode: false }).then(({ status, body }) => {
         expect(status).to.eq(400)

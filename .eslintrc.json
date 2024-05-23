@@ -92,7 +92,7 @@
     "vars-on-top": "error",
     "no-continue": "error",
     "comma-dangle": ["error", "never"],
-	"indent": ["error", 2]
+    "indent": ["error", 2]
   },
   "env": {
     "browser": true,
