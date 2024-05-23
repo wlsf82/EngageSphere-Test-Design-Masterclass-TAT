@@ -35,6 +35,7 @@ Follow these steps:
    git clone git@github.com:RalfCarneiro/EngageSphere-Test-Design-Masterclass-TAT.gitThis will execute the tests in headless mode and display the results in the terminal.
 
 2. Navigate to the project directory:
+    ```sh
     cd EngageSphere-Test-Design-Masterclass-TAT
 
 3.Install the necessary devDependencies by running the command:
