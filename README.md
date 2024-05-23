@@ -22,6 +22,16 @@ Read the following [doc](./docs/TestEnvironment.md) to install and start the bac
 
 ## Tests
 
+To perform testing on this project, you will need:
+
+- [Cypress] To install Cypress in your project, run npm cypress -D
+
+Run tests:
+- [Headed mode] Run npm run test-headed
+- [Headless mode] Run npm run test-headless
+
+
+
 Read the following [doc](./docs/TestCases.md) to get a list of the possible test cases that could be written for this app.
 
 ___

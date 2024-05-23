@@ -1,21 +1,22 @@
 const CUSTOMERS_API_URL = `${Cypress.env('API_URL')}/customers`;
 
 describe('Teste de API - Filtragem de clientes por tamanho', () => {
-    const sizes = ['Small', 'Medium', 'Enterprise', 'Large Enterprise', 'Very Large Enterprise'];
-  
-    sizes.forEach((size) => {
-      it(`Deve retornar apenas clientes com o tamanho "${size}"`, () => {
-        cy.request('GET', `${CUSTOMERS_API_URL}?page=1&limit=50&size=${size}`)
-          .then((response) => {
-            expect(response.status).to.equal(200);
-            expect(response.body).to.have.property('customers');
-  
-            const clients = response.body.customers;
-            expect(clients).to.be.an('array').not.empty;
-          });
-      });
+  const sizes = ['Small', 'Medium', 'Enterprise', 'Large Enterprise', 'Very Large Enterprise'];
+
+  sizes.forEach((size) => {
+    it(`Deve retornar apenas clientes com o tamanho "${size}"`, () => {
+      cy.request('GET', `${CUSTOMERS_API_URL}?page=1&limit=50&size=${size}`)
+        .then(({ status, body }) => {
+          expect(status).to.equal(200);
+          expect(body).to.have.property('customers');
+
+          const clients = body.customers;
+          expect(clients).to.be.an('array').not.empty;
+        });
     });
   });
+});
+
 
 describe('Teste de API - Teste de solicitações inválidas', () => {
     it('Deve retornar erro 400 para página negativa', () => {
@@ -87,6 +88,34 @@ describe('Teste de API - Teste de solicitações inválidas', () => {
         expect(response.body.error).to.eq('Unsupported size value. Supported values are All, Small, Medium, Enterprise, Large Enterprise, and Very Large Enterprise.')
       })
     })
+
+    it('Deve retornar erro 400 para página igual a zero', () => {
+      cy.request({
+        method: 'GET',
+        url: CUSTOMERS_API_URL,
+        qs: {
+          page: 0
+        },
+        failOnStatusCode: false
+      }).then((response) => {
+        expect(response.status).to.eq(400)
+        expect(response.body.error).to.eq('Invalid page or limit. Both must be positive numbers.')
+      })
+    })
+
+    it('Deve retornar erro 400 para limite igual a zero', () => {
+      cy.request({
+        method: 'GET',
+        url: CUSTOMERS_API_URL,
+        qs: {
+          limit: 0
+        },
+        failOnStatusCode: false
+      }).then((response) => {
+        expect(response.status).to.eq(400)
+        expect(response.body.error).to.eq('Invalid page or limit. Both must be positive numbers.')
+      })
+    })
   })
 
   describe('Teste de API - Pagina a lista de clientes corretamente', () => {
@@ -145,6 +174,6 @@ describe('Teste de API - Recupera clientes com sucesso', () => {
       cy.request('GET', CUSTOMERS_API_URL)
         .then((response) => {
           expect(response.status).to.eq(200);
-        });
-    });
+      });
+  });
 });

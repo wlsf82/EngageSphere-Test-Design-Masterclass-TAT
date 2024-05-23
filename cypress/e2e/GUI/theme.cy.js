@@ -9,10 +9,11 @@ describe('Alternância de Tema', () => {
       cy.get('body').should('have.attr', 'data-theme', 'dark');
 
       cy.reload();
-      cy.window().then((win) => {
-        const themeCheck = win.localStorage.getItem('theme');
-        expect(themeCheck).to.eq('dark');
-      });
+      cy.getAllLocalStorage()
+        .then((result) => {
+         const theme = result[Cypress.config('baseUrl')].theme
+         expect(theme).to.equal('dark')
+  })
     });
 
     it('Deve alternar o tema para modo claro e persistir no armazenamento local', () => {
@@ -27,9 +28,10 @@ describe('Alternância de Tema', () => {
       cy.get('body').should('have.attr', 'data-theme', 'light');
 
       cy.reload();
-      cy.window().then((win) => {
-        const themeCheck = win.localStorage.getItem('theme');
-        expect(themeCheck).to.eq('light');
+      cy.getAllLocalStorage()
+        .then((result) => {
+         const theme = result[Cypress.config('baseUrl')].theme
+         expect(theme).to.equal('light')
       });
     });
   });
