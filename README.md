@@ -1,10 +1,10 @@
-# EngangeSphere
+# EngageSphere
 
 Sample project with a Node.js backend and a React frontend.
 
 ## Business rules
 
-Read the following [doc](./docs/Requirements.md) to understand all the EngangeSphere application's functionalities.
+Read the following [doc](./docs/Requirements.md) to understand all the EngageSphere application's functionalities.
 
 ## Pre-requirements
 
@@ -18,41 +18,41 @@ To run this project, you will need:
 
 ## Installing and starting the servers
 
-Read the following [doc](./docs/TestEnvironment.md) to install and start the backend and fgirontend servers.
+Read the following [doc](./docs/TestEnvironment.md) to install and start the backend and frontend servers.
 
 ## Tests
 
-This project utilizes the Cypress front-end testing framework for test automation.
+This project uses the Cypress front-end testing framework for test automation.
 
-## Installation
-Before running the tests, make sure you have installed the necessary dependencies. 
+### Installation
+
+Before running the tests, make sure you have installed the necessary dependencies.
 
 Follow these steps:
 
 1. Clone this repository to your local machine:
-   git clone git@github.com:RalfCarneiro/EngageSphere-Test-Design-Masterclass-TAT.git
+   ```sh
+   git clone git@github.com:RalfCarneiro/EngageSphere-Test-Design-Masterclass-TAT.gitThis will execute the tests in headless mode and display the results in the terminal.
 
 2. Navigate to the project directory:
     cd EngageSphere-Test-Design-Masterclass-TAT
 
-3. Install the necessary devDependencies by running the command:
+3.Install the necessary devDependencies by running the command:
     npm install
 
-## Running Tests
+Running Tests
 Headed Mode (With GUI)
 To run the tests in headed mode, follow these steps:
 
-1. Open the Cypress Test Runner by executing the command:
-    npx cypress open
-
-2. Select the test file you want to execute in the Cypress interface and wait for the tests to run.
-Headless Mode (Without GUI)
-To run the tests in headless mode, follow these steps:
-    npx cypress run
+    1. Open the Cypress Test Runner by executing the below command:
+        npx cypress open
+    2. Select the test file you want to execute in the Cypress interface and wait for the tests to run.
+        Headless Mode (Without GUI)
+        To run the tests in headless mode, follow these steps:
+            npx cypress run
 This will execute the tests in headless mode and display the results in the terminal.
 
 Read the following doc to get a list of the possible test cases that could be written for this app.
-
 
 
 
