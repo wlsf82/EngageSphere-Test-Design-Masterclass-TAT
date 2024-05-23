@@ -1,11 +1,8 @@
-# cypressDependencies
-.DS_Store
+# cypress
 cypress.env.json
-cypress/screenshots
+cypress/screenshots/
 cypress/videos/
 cypress/downloads/
-node_modules/
-results/*.xml
 
 # dependencies
 /frontend/node_modules
@@ -14,5 +11,9 @@ results/*.xml
 /build
 /dist
 
+# results
+results/*.xml
+
 # misc
 .DS_Store
+
