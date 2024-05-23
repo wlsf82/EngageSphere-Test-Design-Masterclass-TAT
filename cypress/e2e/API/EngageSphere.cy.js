@@ -1,7 +1,9 @@
+const CUSTOMERS_API_URL = `${Cypress.env('API_URL')}/customers`;
+
 /// <reference types="Cypress" />
-describe('Validações de API', () => {
-    context('Solicitações inválidas de forma elegante', () => {
-      it('Então valido page="invalid" como string', () => {
+describe('GET /customers', () => {
+    context('Solicitações inválidas são tratadas de forma elegante', () => {
+      it('Retorna um erro e código de status 400 ao passar um valor inválido para o parâmetro page', () => {
         cy.request({
           method: 'GET',
           url: 'http://localhost:3001/customers?page=invalid&limit=10&size=All',
@@ -10,7 +12,7 @@ describe('Validações de API', () => {
           expect(response.status).to.eq(400)
         });
       });
-      it('Então valido a request definindo como extra_large', () => {
+      it('Retorna um erro e código de status 400 ao passar um valor inválido para o parâmetro size', () => {
         cy.request({
           method: 'GET',
           url: 'http://localhost:3001/customers?size=extra_large',
@@ -21,25 +23,25 @@ describe('Validações de API', () => {
           expect(response.body.error).to.contain('Supported values are All, Small, Medium, Enterprise, Large Enterprise, and Very Large Enterprise.');
         });
       });
-      it('Então valido a request definindo como invalid limit', () => {
+      it('Retorna um erro e código de status 400 ao passar um valor nulo para o parâmetro page', () => {
         cy.request({
           method: 'GET',
-          url: 'http://localhost:3001/customers?page=invalid&limit=10&size=All',
+          url: 'http://localhost:3001/customers?page=null&limit=10&size=Small',
           failOnStatusCode: false 
         }).then(response => {
           expect(response.status).to.eq(400);
         });
       });
-      it('Então valido a request com tamanho invalido', () => {
+      it('Retorna um erro e código de status 400 ao passar um valor nulo para o parâmetro size', () => {
         cy.request({
           method: 'GET',
-          url: 'http://localhost:3001/customers?page=1&limit=10&size=Invalid',
+          url: 'http://localhost:3001/customers?page=1&limit=10&size=null',
           failOnStatusCode: false
         }).then(response => {
           expect(response.status).to.eq(400);
         });
       })
-      it('Então valido limit como boleano', () => {
+      it('Retorna um erro e código de status 400 ao passar um boleano', () => {
         cy.request({
           method: 'GET',
           url: 'http://localhost:3001/customers?page=1&limit=true&size=Large%20Enterprise',
@@ -51,7 +53,7 @@ describe('Validações de API', () => {
       });
     });
     context('Validação de paginação', () => {
-        it('Validação de paginação da primeira página', () => {
+        it('Validação de paginação da primeira página deve retornar 200', () => {
           cy.request({
             method: 'GET',
             url: 'http://localhost:3001/customers?page=1&limit=10&size=All'
@@ -80,7 +82,7 @@ describe('Validações de API', () => {
           });
         });
       
-        it('Validação de paginação da segunda página', () => {
+        it('Validação de paginação da segunda página deve retornar 200', () => {
           cy.request({
             method: 'GET',
             url: 'http://localhost:3001/customers?page=2&limit=10&size=All'
@@ -109,7 +111,7 @@ describe('Validações de API', () => {
           });
         }); 
     
-        it('Validação de paginação da última página', () => {
+        it('Validação de paginação da última página deve retornar 200', () => {
           cy.request({
             method: 'GET',
             url: 'http://localhost:3001/customers?page=5&limit=10&size=All'
@@ -134,7 +136,7 @@ describe('Validações de API', () => {
         }); 
     });
     context('Recuperação de clientes', () => {
-        it('Recupera clientes com sucesso', () => {
+        it('Recupera clientes com sucesso deve retornar 200', () => {
             cy.request({
               method: 'GET',
               url: 'http://localhost:3001/customers?page=1&limit=10&size=All',
