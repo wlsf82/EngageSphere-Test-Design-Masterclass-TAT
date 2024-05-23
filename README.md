@@ -26,12 +26,13 @@ Read the following [doc](./docs/TestCases.md) to get a list of the possible test
 
 ### Installation
 
-Install the dev dependencies: run `npm install` (or `npm i` for the short version)
+To install the dev dependencies, run `npm install` (or `npm i` for the short version.)
 
-Test in headless mode: run `npm test` (or `npm t` for the short version)
+### Running the tests
 
-Test in interactive mode: run `npm run cy:open`
+To test in headless mode, run `npm test` (or `npm t` for the short version.)
 
----
+## To test in interactive mode, run `npm run cy:open`.
 
-Made with ❤️ by [Walmyr](https://walmyr.dev).
+Made with ❤️ by [Walmyr](https://walmyr.dev)
+Tested by [Jonathan Sales](https://www.linkedin.com/in/jonathan-sales-44580b1b3/).
