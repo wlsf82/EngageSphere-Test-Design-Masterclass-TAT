@@ -13,7 +13,7 @@ describe('Input component', () => {
     cy.get('input[data-testid="name"]').should('be.disabled')
   })
   it('Disables the text input field when in the customer details page', () => {
-    const customer = { id: 1, name: 'Jonathan S.A.', employees: 10, size: 'small' }
+    const customer = { id: 1, name: 'Jon S.A.', employees: 10, size: 'small' }
 
     cy.mount(<Input customer={customer} />)
     cy.get('input[data-testid="name"]').should('be.disabled')

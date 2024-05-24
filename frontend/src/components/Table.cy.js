@@ -7,8 +7,8 @@ import App from '../App'
 import '../index.css'
 
 const allCustomers = [
-  { id: 1, name: "Jonathan's BigSales", employees: 5000, size: 'very large enterprise' },
-  { id: 2, name: 'WalMall', employees: 50, size: 'small' },
+  { id: 1, name: "Jon's BigSales", employees: 5000, size: 'very large enterprise' },
+  { id: 2, name: 'WaMall', employees: 50, size: 'small' },
   { id: 3, name: 'TestMall', employees: 500, size: 'medium' },
   { id: 4, name: 'TATMall', employees: 550, size: 'medium' }
 ]
@@ -54,7 +54,7 @@ describe('Table component', () => {
     })
   })
 
-  context('Integration Table and App', () => {
+  context('Table and App', () => {
     it("Shows a Loading... fallback element before the initial customers' fetch", () => {
       cy.mount(<App />)
 

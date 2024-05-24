@@ -92,14 +92,14 @@ describe('EngageSphere API requests for the /customers Endpoint', () => {
         expect(body).to.have.property('error', 'Invalid page or limit. Both must be positive numbers.')
       })
     })
-    it('Handles invalid requests gracefully (e.g., limit as a boolean)', () => {
+    it.only('Handles invalid requests gracefully (e.g., limit as 0)', () => {
       cy.api_getCustomers({ limit: 0, failOnStatusCode: false }).then(({ status, body }) => {
         expect(status).to.eq(400)
         expect(body).to.have.property('error', 'Invalid page or limit. Both must be positive numbers.')
       })
     })
-    it.only('Handles invalid requests gracefully (e.g., empty page)', () => {
-      cy.api_getCustomers({ page: 6, limit: 10, failOnStatusCode: false }).then(({ status, body }) => {
+    it.only('Handles invalid requests gracefully (e.g., page as 0)', () => {
+      cy.api_getCustomers({ page: 0, failOnStatusCode: false}).then(({ status, body }) => {
         expect(status).to.eq(400)
         expect(body).to.have.property('error', 'Invalid page or limit. Both must be positive numbers.')
       })

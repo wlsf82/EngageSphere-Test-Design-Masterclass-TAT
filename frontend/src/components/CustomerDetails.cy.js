@@ -9,7 +9,7 @@ const customer = {
   employees: 500,
   size: 'large',
   contactInfo: {
-    name: 'Jonathan Vendas',
+    name: 'Jon Vendas',
     email: 'john.qa@gmail.com'
   },
   address: {
@@ -70,11 +70,8 @@ describe('CustomerDetails component', () => {
     cy.mount(<CustomerDetails customer={customer} />)
 
     cy.get('.show-address-btn').click()
-
     cy.get('.customer-details .address-info').should('be.visible')
-
     cy.get('.hide-address-btn').click()
-
     cy.get('.customer-details .address-info').should('not.exist')
   })
   it("Goes back to the customers' list when clicking the 'Back' button", () => {
