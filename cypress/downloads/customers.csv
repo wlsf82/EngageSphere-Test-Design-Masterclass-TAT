@@ -1,0 +1,3 @@
+ID,Company_Name,Number_of_Employees,Size,Contact_Name,Contact_Email,Street,City,State,Zip_Code,Country
+"1","Customer 1","10","Small","John1","john@example.com","123 street","Noronha","PE","12345","BR"
+"2","Customer 2","5","Small","John2","john2@example.com","123 st","Fortaleza","CE","12345","BR"
