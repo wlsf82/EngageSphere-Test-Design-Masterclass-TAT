@@ -41,7 +41,7 @@ describe('Pagination component', () => {
         }}
       />
     )
-    
+
     cy.get('[data-testid="pagination"] select').select('50')
     cy.window().then((win) => {
       expect(win.localStorage.getItem('paginationLimit')).to.equal('50')
