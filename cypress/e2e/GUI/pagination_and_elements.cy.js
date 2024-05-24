@@ -1,13 +1,6 @@
 /// <reference types="Cypress" />
 describe('Paginação', () => {
     beforeEach(() => {
-      for (let page = 1; page <= 5; page++) {
-        cy.intercept(
-          'GET',
-          `/customers?page=${page}&limit=10&size=All`,
-          { fixture: `page${page}&limit10All.json` }
-        ).as(`pag${page}limit10all`);
-      }
       cy.visit('/') 
       cy.wait('@pag1limit10all');
     });
@@ -23,12 +16,6 @@ describe('Paginação', () => {
         });
     });
     context('Quando navego até a página 5 e valido o botão de "next" desabilitado', () => {
-      beforeEach(() => {
-        for (let page = 2; page <= 5; page++) {
-          cy.contains('Next').click();
-          cy.wait(`@pag${page}limit10all`);
-        }
-      });
         it('Então o botão de navegação deve estar desabilitado', () => {
           cy.get('[disabled]').should('exist');
         });

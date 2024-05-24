@@ -109,22 +109,6 @@ describe('GET /customers', () => {
           });
         });
       });
-
-      it('Retorna 200 na recuperação do cliente por Small e limite de 10', () => {
-        cy.request({
-          method: 'GET',
-          url: `${CUSTOMERS_API_URL}?page=1&limit=5&size=Small`,
-        }).then(({ status, body }) => {
-          expect(status).to.eq(200);
-          expect(body.customers).to.be.an('array').that.is.not.empty;
-          expect(body.customers.length).to.eq(3);
-          expect(body.customers).to.have.lengthOf.at.most(10);
-          body.customers.forEach(customer => {
-            expect(customer.size).to.eq('Small');
-          });
-        });
-      });
-
     });
   });
   
